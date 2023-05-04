@@ -1,0 +1,10 @@
+<button mat-raised-button (click)="goBack()"><mat-icon>arrow_back</mat-icon> Retour</button>
+
+<!-- {{programme$ | async | json}} -->
+
+{{(programme$ | async)?.nom}}
+{{(programme$ | async)?.duree}}
+{{(programme$ | async)?.nombre_repas_jour}}
+{{(programme$ | async)?.calories_jour}}
+{{(programme$ | async)?.aliments_recommandes}}
+{{(programme$ | async)?.aliments_a_eviter}}

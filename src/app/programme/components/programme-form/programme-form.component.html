@@ -1,0 +1,63 @@
+<p>programme-form works!</p>
+<div>
+    <pre>{{ data }}</pre>
+  </div>
+  
+
+
+<h2 mat-dialog-title>{{title}}</h2>
+
+<form [formGroup]="programmeForm" (ngSubmit)="onSubmit()">
+    <div class="form">
+        <mat-form-field appearance="outline">
+            <mat-label>identifiant</mat-label>
+            <input matInput formControlName="id" readonly />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Nom</mat-label>
+            <input matInput formControlName="nom" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>duree</mat-label>
+            <input matInput formControlName="duree" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>nombre de repas par jour</mat-label>
+            <input matInput formControlName="nombre_repas_jour" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>calories par jour</mat-label>
+            <input matInput formControlName="calories_jour" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>aliments recommandes</mat-label>
+            <input matInput formControlName="aliments_recommandes" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>aliments à eviter</mat-label>
+            <input matInput formControlName="aliments_a_eviter" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label> objectifid </mat-label>
+            <input matInput formControlName="objectifid" />
+        </mat-form-field>
+
+ 
+
+
+
+    </div>
+
+    <mat-dialog-actions align="end">
+        <button mat-button type="button" mat-dialog-close>Annuler</button>
+        <button mat-raised-button type="submit" cdkFocusInitial color="warn"
+            [disabled]="!programmeForm.valid || !programmeForm.dirty">{{submitBtnName}}</button>
+    </mat-dialog-actions>
+</form>

@@ -1,0 +1,40 @@
+<div style="display: flex; justify-content: space-between; margin: 1rem;">
+    <h1>programmes</h1>
+    <div class="btn-holder">
+        <button mat-fab color="warn" (click)="openprogrammeForm()"><mat-icon>add</mat-icon></button>
+    </div>
+</div>
+<div class="container">
+    <div class="card-container">
+        <div *ngFor="let programme of programmes$ | async">
+            <mat-card class="example-card" (click)="showprogrammeDetails(programme.id)">
+                <mat-card-header>
+                    <mat-card-title> {{programme.nom}} </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>
+                        <b>duree :</b> {{programme.duree}}
+                    </p>
+                    <p>
+                        <b>nombre de repas par jour :</b> {{programme.nombre_repas_jour}}
+                    </p>
+                    <p>
+                        <b>calories par jour :</b> {{programme.calories_jour}}
+                    </p>
+                    <p>
+                        <b>aliments recommandes :</b> {{programme.aliments_recommandes}}
+                    </p>
+                    <p>
+                        <b>aliments à éviter :</b> {{programme.aliments_a_eviter}}
+                    </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <a (click)="openprogrammeForm(programme); $event.stopPropagation();">
+                        <mat-icon class="edit-btn">edit</mat-icon></a>
+                    <a (click)="delete(programme.id); $event.stopPropagation();">
+                        <mat-icon class="delete-btn">delete</mat-icon></a>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
